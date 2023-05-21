@@ -1,0 +1,63 @@
+.chat-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+   justify-content: space-between;
+
+}
+
+.friend-list {
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 8px rgb(200, 218, 218), 10px 10px 8px darkgrey, 15px 15px 8px black;
+    border: 4px double black;
+    height: 80vh;
+    width: 30vw;
+    border-radius: 20px;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.friend-title {
+    font-family: bungee, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+
+.chat {
+    height: 80vh;
+    border-radius: 20px;
+    border: 4px double black;
+    box-shadow: 5px 5px 8px rgb(200, 218, 218), 10px 10px 8px darkgrey, 15px 15px 8px black;
+    width: 60vw;
+    margin-right: 30px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: whitesmoke;
+ 
+}
+
+.chat-textarea {
+   width: 700px;
+   height: 40px;
+   border-radius: 20px;
+   margin-left: 10px;
+   margin-top: 20px;
+}
+
+.chat-btn {
+    margin-top: 20px;
+}
+
+.text-creation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-top: 4px solid cadetblue;
+ 
+   
+}

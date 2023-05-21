@@ -2,6 +2,8 @@ import React from 'react'
 import '../components/Login/Login.css'
 import Layout from '../components/Layout/Layout'
 const Login = () => {
+
+    
     return (
         <Layout>
 
@@ -20,18 +22,22 @@ const Login = () => {
                 <form className="signup">
                 <h1 className="join">Join the Banter</h1>
                 <h3 className="h3">Sign Up Today!</h3>
+                    <label>Create Username:</label>
+                    <input />
+                    <label>Create Password:</label>
+                    <input type="password"/>
                     <label>First Name:</label>
                     <input />
                     <label>Last Name:</label>
                     <input />
-                    <label>Email:</label>
+                    <label>Email</label>
                     <input type="email"/>
-                    <label>Choose Username:</label>
+                    <label>Phone:</label>
                     <input />
-                    <label>Choose Password:</label>
-                    <input type="password"/>
                     <label>Receive Updates?</label>
                     <input type="checkbox"/>
+                    <label>Add Profile Image URL:</label>
+                    <input />
                     <button>Add Me</button>
                 </form>
             

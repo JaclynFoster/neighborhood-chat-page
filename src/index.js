@@ -4,7 +4,7 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import App from './routes/App';
+import App from './routes/Home';
 import Login from './routes/Login';
 import Chat from './routes/Chat';
 import Blog from './routes/Blog';

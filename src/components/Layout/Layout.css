@@ -1,0 +1,90 @@
+
+.nav {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+     justify-content: space-evenly;
+    width: 100vw;
+    align-items: center;
+    background-color: rgb(200, 218, 218);
+    height: 80px;
+   font-size: 20px; 
+}
+
+.logo {
+    height: 80px;
+    width: 500px;
+}
+
+
+.title {
+    text-shadow: 3px 3px 0 aquamarine, 6px 6px 0 darkgreen,
+      9px 9px blanchedalmond, 12px 12px 0 black;
+    font-family: bungee, sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 55px;
+    text-align: center;
+    margin: 0;
+    color: darkcyan;
+    animation: shadows 1.2s ease-in infinite;
+    letter-spacing: 0.4rem;
+  }
+  
+  @keyframes shadows {
+    0% {
+      text-shadow: none;
+    }
+    10% {
+      transform: translate(-3px, -3px);
+      text-shadow: 3px 3px 0 darkcyan;
+    }
+    20% {
+      transform: translate(-6px, -6px);
+      text-shadow: 3px 3px 0 darkcyan,
+        6px 6px 0 var(--color-tertiary);
+    }
+    30% {
+      transform: translate(-9px, -9px);
+      text-shadow: 3px 3px 0 darkcyan,
+        6px 6px 0 aquamarine, 9px 9px darkgreen;
+    }
+    40% {
+      transform: translate(-12px, -12px);
+      text-shadow: 3px 3px 0 darkcyan,
+        6px 6px 0 aquamarine, 9px 9px darkgreen,
+        12px 12px 0 blanchedalmond;
+    }
+    50% {
+      transform: translate(-12px, -12px);
+      text-shadow: 3px 3px 0 darkcyan,
+        6px 6px 0 aquamarine, 9px 9px darkgreen,
+        12px 12px 0 blanchedalmond;
+    }
+    60% {
+      text-shadow: 3px 3px 0 darkcyan,
+        6px 6px 0 aquamarine, 9px 9px darkgreen,
+        12px 12px 0 blanchedalmond;
+    }
+    70% {
+      text-shadow: 3px 3px 0 darkcyan,
+        6px 6px 0 aquamarine, 9px 9px darkgreen;
+    }
+    80% {
+      text-shadow: 3px 3px 0 darkcyan,
+        6px 6px 0 aquamarine;
+    }
+    90% {
+      text-shadow: 3px 3px 0 darkcyan;
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+  
+  .link {
+    font-family: bungee, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+
+  }

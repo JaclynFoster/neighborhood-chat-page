@@ -1,28 +1,68 @@
-const Sequelize = require("sequelize")
-const {CONNECTION_STRING} = process.env
-const {QUERY_CREATE_USER} = require("./QUERIES")
+const Sequelize = require('sequelize')
+const { CONNECTION_STRING } = process.env
+const {
+  QUERY_CREATE_USER,
+  QUERY_GET_POSTS,
+  QUERY_GET_COMMENTS
+} = require('./QUERIES')
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false
-      }
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false
     }
-  })
+  }
+})
 
-  const createUsers = (req, res) => {
-    const {username, password, first_name, last_name, email, phone, receive_updates, image} = req.body
-    sequelize.query(QUERY_CREATE_USER, {
-        replacements: [username, password,first_name, last_name, email, phone, receive_updates, image]
+const createUsers = (req, res) => {
+  const {
+    username,
+    password,
+    first_name,
+    last_name,
+    email,
+    image_url
+  } = req.body
+  sequelize
+    .query(QUERY_CREATE_USER, {
+      replacements: [
+        username,
+        password,
+        first_name,
+        last_name,
+        email,
+        image_url
+      ]
     })
     .then(dbRes => {
-        alert("User Created. Please return to Login and sign in.")
-        res.sendStatus(200)
+      alert('User Created. Please return to Login and sign in.')
+      res.sendStatus(200)
     })
     .catch(error => {
-        console.log("Error", error)
+      console.log('Error', error)
     })
 }
 
-module.exports = {createUsers}
+const getPosts = (req, res) => {
+  sequelize
+    .query(QUERY_GET_POSTS)
+    .then(dbRes => {
+      res.status(200).send(dbRes[0])
+    })
+    .catch(error => {
+      console.log('error getPosts', error)
+    })
+}
+
+const getComments = (req, res) => {
+  sequelize
+    .query(QUERY_GET_COMMENTS)
+    .then(dbRes => {
+      res.status(200).send(dbRes[0])
+    })
+    .catch(error => {
+      console.log('error get comments', error)
+    })
+}
+module.exports = { createUsers, getPosts, getComments }

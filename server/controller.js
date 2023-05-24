@@ -4,7 +4,8 @@ const {
   QUERY_CREATE_USER,
   QUERY_GET_POSTS,
   QUERY_GET_COMMENTS,
-  QUERY_GET_USER
+  QUERY_GET_USER,
+  QUERY_CREATE_POST
 } = require('./QUERIES')
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -43,6 +44,19 @@ const createUsers = (req, res) => {
       console.log('Error', error)
     })
 }
+const createPost = (req, res) => {
+  const { user_id, post } = req.body
+  sequelize
+    .query(QUERY_CREATE_POST, {
+      replacements: [user_id, post]
+    })
+    .then(dbRes => {
+      res.sendStatus(200)
+    })
+    .catch(error => {
+      console.log('error on create post', error)
+    })
+}
 
 const getPosts = (req, res) => {
   sequelize
@@ -67,16 +81,17 @@ const getComments = (req, res) => {
 }
 
 const getUser = (req, res) => {
-  const {username, password} = req.query
+  const { username, password } = req.query
   sequelize
-  .query(QUERY_GET_USER, {
-    replacements: [username, password]
-  })
-  .then(dbRes => {
-    res.status(200).send(dbRes[0])
-  })
-  .catch(error => {
-    console.log("login error", error)
-  })
+    .query(QUERY_GET_USER, {
+      replacements: [username, password]
+    })
+    .then(dbRes => {
+      res.status(200).send(dbRes[0])
+    })
+    .catch(error => {
+      console.log('login error', error)
+    })
 }
-module.exports = { createUsers, getPosts, getComments, getUser }
+module.exports = { createUsers, getPosts, getComments, getUser, createPost }
+

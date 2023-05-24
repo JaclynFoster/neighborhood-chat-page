@@ -6,9 +6,16 @@ const { SERVER_PORT } = process.env
 app.use(express.json())
 app.use(cors())
 
-const { createUsers, getPosts, getComments, getUser } = require('./controller.js')
+const {
+  createUsers,
+  getPosts,
+  getComments,
+  getUser,
+  createPost
+} = require('./controller.js')
 
 app.post('/createUsers', createUsers)
+app.post('/createPost', createPost)
 app.get('/getPosts', getPosts)
 app.get('/getComments', getComments)
 app.get('/getUser', getUser)

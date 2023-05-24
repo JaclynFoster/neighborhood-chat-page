@@ -8,6 +8,7 @@ import App from './routes/Home';
 import Login from './routes/Login';
 import Chat from './routes/Chat';
 import Blog from './routes/Blog';
+import AuthContext, { AuthContextProvider } from './context/auth-context';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <AuthContextProvider>
+
     <RouterProvider router={router}/>
+  </AuthContextProvider>
+  
    {/* // <App /> */}
   </React.StrictMode>
 );

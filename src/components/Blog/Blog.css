@@ -43,7 +43,7 @@
 }
 
 .posts {
-    height: 200px;
+    height: 300px;
     width: 1000px;
     background-color: whitesmoke;
     border-radius: 20px;
@@ -70,4 +70,39 @@ pre {
     white-space: -o-pre-wrap;
     word-wrap: break-word;
     font-size: 15px;
+  }
+
+  .leave-comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+    
+
+  }
+
+  .comment-input {
+    width: 450px;
+    height: 40px;
+    margin-bottom: 30px;
+  }
+
+  .background-modal-div {
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.074);
+    left: 0;
+    top: 0;
+  }
+
+  .modal-box {
+    background-color: white;
+    width: 500px;
+    height: 250px;
   }

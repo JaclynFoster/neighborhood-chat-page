@@ -3,7 +3,8 @@ const { CONNECTION_STRING } = process.env
 const {
   QUERY_CREATE_USER,
   QUERY_GET_POSTS,
-  QUERY_GET_COMMENTS
+  QUERY_GET_COMMENTS,
+  QUERY_GET_USER
 } = require('./QUERIES')
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -36,7 +37,6 @@ const createUsers = (req, res) => {
       ]
     })
     .then(dbRes => {
-      alert('User Created. Please return to Login and sign in.')
       res.sendStatus(200)
     })
     .catch(error => {
@@ -65,4 +65,18 @@ const getComments = (req, res) => {
       console.log('error get comments', error)
     })
 }
-module.exports = { createUsers, getPosts, getComments }
+
+const getUser = (req, res) => {
+  const {username, password} = req.query
+  sequelize
+  .query(QUERY_GET_USER, {
+    replacements: [username, password]
+  })
+  .then(dbRes => {
+    res.status(200).send(dbRes[0])
+  })
+  .catch(error => {
+    console.log("login error", error)
+  })
+}
+module.exports = { createUsers, getPosts, getComments, getUser }

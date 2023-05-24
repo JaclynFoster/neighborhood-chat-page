@@ -24,6 +24,7 @@ const Posts = ({ postList }) => {
         return (
           <div className="posts">
             <div key={post.post_id}>
+              <img className="comment-pic" src={post.image_url}/>
               <label>{post.username}:</label>
               <pre>{post.post}</pre>
               <section className="comment-section">
@@ -39,7 +40,8 @@ const Posts = ({ postList }) => {
                     // this is a smaller list of the commentList with the matching data
                     return (
                       <div key={comment.comment_id}>
-                        <label>{comment.username} :</label>
+                        <img className="comment-pic" src={comment.image_url}/>
+                        <label>{comment.username}: </label>
                         <span>{comment.comment}</span>
                       </div>
                     )

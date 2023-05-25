@@ -106,3 +106,7 @@ pre {
     width: 500px;
     height: 250px;
   }
+
+  .delete-btn {
+    float: right;
+  }

@@ -36,7 +36,7 @@
     border: 5px double;
     box-shadow: 5px 5px 8px cadetblue, 10px 10px 8px darkgrey, 15px 15px 8px black;
     border-radius: 20px;
-   
+  
   
 }
 
@@ -86,3 +86,28 @@ button:hover {
     background-color: rgb(136, 210, 179);
     color:black;
 }
+
+.background-modal-div {
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.074);
+    left: 0;
+    top: 0;
+  }
+
+  .modal-box {
+    background-color: rgb(200, 218, 218);;
+    width: 500px;
+    height: 20px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px rgb(19, 19, 20);
+    font-size: 45px;
+    font-weight: bolder;
+    font-family:fantasy;
+    padding: 10px 10px;
+  }

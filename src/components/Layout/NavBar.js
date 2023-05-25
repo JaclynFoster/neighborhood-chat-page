@@ -58,8 +58,8 @@ const NavBar = () => {
                 Home
               </Link>
               {showBlog()}
-              {/* <Link className="link" to="/chat">
-          Chat
+              {/* <Link className="link" to="/signup">
+          Signup
         </Link> */}
               {hideLogin()}
             </nav>

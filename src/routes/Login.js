@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 const { REACT_APP_BACKEND_URL } = process.env
 
 const Login = () => {
-  const refSubmit = useRef()
   const props = useContext(AuthContext)
   const navigate = useNavigate()
   console.log(props)
@@ -15,44 +14,7 @@ const Login = () => {
   const [passwordInput, handlePasswordChange] = useState('')
   const [usernameInput, handleUsernameChange] = useState('')
   const [userObject, setUser] = useState({})
-  const [createUser, setCreateUser] = useState({})
-  const [usernameSignup, handleUsernameSignup] = useState('')
-  const [passwordSignup, handlePasswordSignup] = useState('')
-  const [firstNameSignup, handleFirstSignup] = useState('')
-  const [lastNameSignup, handleLastSignup] = useState('')
-  const [emailSignup, handleEmailSignup] = useState('')
-  const [imageSignup, handleImageSignup] = useState('')
 
-  const signupClickHandler = () => {
-    refSubmit.current.setAttribute('disabled', true)
-
-    axios
-      .post(`${REACT_APP_BACKEND_URL}/createUsers`, {
-        username: usernameSignup,
-        password: passwordSignup,
-        first_name: firstNameSignup,
-        last_name: lastNameSignup,
-        email: emailSignup,
-        image_url: imageSignup
-      })
-      .then(response => {
-        refSubmit.current.removeAttribute('disabled')
-        console.log(response.data)
-        alert('User created. Please login to continue.')
-        setCreateUser([{ ...response.data }])
-        handleUsernameSignup('')
-        handlePasswordSignup('')
-        handleFirstSignup('')
-        handleLastSignup('')
-        handleEmailSignup('')
-        handleImageSignup('')
-      })
-      .catch(error => {
-        refSubmit.current.removeAttribute('disabled')
-
-        console.log('error on create user', error)
-      })
-  }
   const loginClickHandler = () => {
     axios
       .get(`${REACT_APP_BACKEND_URL}/getUser`, {
@@ -75,6 +37,11 @@ const Login = () => {
         console.log('error on get comments', error)
       })
   }
+
+  const newSignupHandler = () => {
+    navigate('/signup', { replace: true })
+  }
+
   useEffect(() => {}, [])
   return (
     <Layout>
@@ -94,52 +61,15 @@ const Login = () => {
               onChange={e => handlePasswordChange(e.target.value)}
             />
             <button onClick={() => loginClickHandler()}>Submit</button>
+            <label>Need an account?</label>
+            <button onClick={() => newSignupHandler()}>Sign Up</button>
           </div>
         </AuthContext.Provider>
-
-        <div key={createUser.user_id} className="signup">
-          <h1 className="join">Join the Banter</h1>
-          <h3 className="h3">Sign Up Today!</h3>
-          <label>Create Username:</label>
-          <input
-            value={usernameSignup}
-            onChange={e => handleUsernameSignup(e.target.value)}
-          />
-          <label>Create Password:</label>
-          <input
-            type="password"
-            value={passwordSignup}
-            onChange={e => handlePasswordSignup(e.target.value)}
-          />
-          <label>First Name:</label>
-          <input
-            value={firstNameSignup}
-            onChange={e => handleFirstSignup(e.target.value)}
-          />
-          <label>Last Name:</label>
-          <input
-            value={lastNameSignup}
-            onChange={e => handleLastSignup(e.target.value)}
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            value={emailSignup}
-            onChange={e => handleEmailSignup(e.target.value)}
-          />
-          <label>Add Profile Image URL:</label>
-          <input
-            value={imageSignup}
-            onChange={e => handleImageSignup(e.target.value)}
-          />
-          <button ref={refSubmit} onClick={() => signupClickHandler()}>
-            Add Me
-          </button>
-        </div>
       </div>
     </Layout>
   )
 }
 
 export default Login
+
 

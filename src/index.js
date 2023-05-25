@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './routes/Home';
 import Login from './routes/Login';
 import Chat from './routes/Chat';
+import Signup from './routes/Signup';
 import Blog from './routes/Blog';
 import AuthContext, { AuthContextProvider } from './context/auth-context';
 
@@ -20,8 +21,8 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/chat",
-    element: <Chat />,
+    path: "/signup",
+    element: <Signup />,
   },
   {
     path: "/blog",

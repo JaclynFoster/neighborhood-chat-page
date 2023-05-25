@@ -19,7 +19,7 @@ const Blog = () => {
     axios
       .get(`${REACT_APP_BACKEND_URL}/getPosts`)
       .then(response => {
-        setPostList([...response.data])
+        setPostList(response.data)
         console.log(response.data)
       })
       .catch(error => {
@@ -38,6 +38,7 @@ const Blog = () => {
         console.log(response.data)
       })
   }
+
   useEffect(() => {
     getPostsHandler()
   }, [])
@@ -70,7 +71,7 @@ const Blog = () => {
             </button>
           </div>
           <div className="posts-container">
-            <Posts postList={postList} />
+            <Posts postList={postList} getPostsHandler={getPostsHandler} />
           </div>
         </section>
       </div>
@@ -79,4 +80,5 @@ const Blog = () => {
 }
 
 export default Blog
+
 

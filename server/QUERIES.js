@@ -6,6 +6,11 @@ const QUERY_CREATE_POST = `
 INSERT INTO posts (user_id, post)
 VALUES (?,?)
 `
+const QUERY_CREATE_COMMENT = `
+INSERT INTO comments (post_id, user_id, comment)
+VALUES (?,?,?)
+
+`
 const QUERY_GET_POSTS = `
 SELECT posts.*, users.username, users.image_url FROM posts
 JOIN users
@@ -25,11 +30,17 @@ WHERE users.username = ?
 AND users.password = ?
 
 `
+const QUERY_DELETE_POST = `
+DELETE FROM posts
+WHERE post_id = ?
+`
 module.exports = {
   QUERY_CREATE_USER,
   QUERY_GET_POSTS,
   QUERY_GET_COMMENTS,
   QUERY_GET_USER,
-  QUERY_CREATE_POST
+  QUERY_CREATE_POST,
+  QUERY_CREATE_COMMENT,
+  QUERY_DELETE_POST
 }
 

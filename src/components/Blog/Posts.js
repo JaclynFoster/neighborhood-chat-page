@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../Blog/Blog.css'
 import axios from 'axios'
 import Modal from './Modal'
+import AuthContext from '../../context/auth-context'
 const { REACT_APP_BACKEND_URL } = process.env
 
-const Posts = ({ postList }) => {
+const Posts = ({ postList, getPostsHandler }) => {
   const [showModal, setShowModal] = useState(false)
   const [commentList, setCommentList] = useState([])
-  useEffect(() => {
+  const [showDelete, setShowDelete] = useState(false)
+
+  const props = useContext(AuthContext)
+
+  const getCommentsHandler = () => {
     axios
       .get(`${REACT_APP_BACKEND_URL}/getComments`)
       .then(response => {
@@ -18,6 +23,18 @@ const Posts = ({ postList }) => {
       .catch(error => {
         console.log('error on get comments', error)
       })
+  }
+  const deletePost = post_id => {
+    axios
+      .delete(`${REACT_APP_BACKEND_URL}/deletePost${post_id}`)
+      .then(response => {
+        getPostsHandler()
+        console.log(response.data)
+      })
+  }
+
+  useEffect(() => {
+    getCommentsHandler()
   }, [])
   console.log('commentList', commentList)
   return (
@@ -31,7 +48,6 @@ const Posts = ({ postList }) => {
               <pre>{post.post}</pre>
               <section className="comment-section">
                 <h4>Comments:</h4>
-
                 {commentList
                   .filter(comment => {
                     // this is an object
@@ -49,8 +65,24 @@ const Posts = ({ postList }) => {
                       </div>
                     )
                   })}
-                {showModal ? <Modal setShowModal={setShowModal} /> : null}
-                <button onClick={() => setShowModal(true)}>Add Comment</button>
+                {post.post_id === showModal ? (
+                  <Modal
+                    getCommentsHandler={getCommentsHandler}
+                    post_id={post.post_id}
+                    setShowModal={setShowModal}
+                  />
+                ) : null}
+                <button onClick={() => setShowModal(post.post_id)}>
+                  Add Comment
+                </button>`
+                {post.user_id === props.userObj.user_id ? (
+                  <button
+                    className="delete-btn"
+                    onClick={() => deletePost(post.post_id)}
+                  >
+                    Delete
+                  </button>
+                ) : null}
               </section>
             </div>
           </div>
@@ -61,4 +93,5 @@ const Posts = ({ postList }) => {
 }
 
 export default Posts
+
 

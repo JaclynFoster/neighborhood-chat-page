@@ -30,6 +30,12 @@ WHERE users.username = ?
 AND users.password = ?
 
 `
+const QUERY_GET_POST_COUNT = `
+SELECT COUNT(*)
+FROM posts
+WHERE user_id = ?
+`
+
 const QUERY_DELETE_POST = `
 DELETE FROM posts
 WHERE post_id = ?
@@ -41,6 +47,8 @@ module.exports = {
   QUERY_GET_USER,
   QUERY_CREATE_POST,
   QUERY_CREATE_COMMENT,
-  QUERY_DELETE_POST
+  QUERY_DELETE_POST,
+  QUERY_GET_POST_COUNT
 }
+
 

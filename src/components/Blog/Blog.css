@@ -28,6 +28,8 @@
     margin-left: -10px;
     border-radius: 30px;
     margin-bottom: 20px;
+    padding-left: 15px;
+    padding-top: 5px;
 }
 
 .posting {
@@ -53,13 +55,16 @@
     padding-left: 20px;
     padding-top: 10px;
     margin-bottom: 20px;
+    overflow: auto;
 }
 
+
 .comment-pic {
-    height: 30px;
-    width: 30px;
+    height: 45px;
+    width: 45px;
     border-radius: 40px;
     border: 1px solid black;
+    margin-right: 4px;
 }
 
 pre {
@@ -69,7 +74,7 @@ pre {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .leave-comment {
@@ -86,6 +91,7 @@ pre {
     width: 450px;
     height: 40px;
     margin-bottom: 30px;
+    padding-left: 15px;
   }
 
   .background-modal-div {
@@ -109,4 +115,64 @@ pre {
 
   .delete-btn {
     float: right;
+    margin-right: 10px; 
+    font-size: 15px;
+    margin-bottom: -5px;
   }
+  .delete-btn:hover {
+    background-color: rgb(176, 69, 69);
+  }
+  .delete-btn:active {
+    transform: translatey(-1px);
+  }
+  .like-btn {
+    float: right;
+    background-color: transparent;
+    background: transparent;
+    height: 30px;
+    width: 40px;
+    border-radius: 10px;
+    margin-right: 15px;
+  
+  }
+
+  .like-btn:active {
+    transform: translatey(-1px);
+  }
+
+  .add-delete-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: end;
+  }
+
+  .comment-section {
+    border: 3px double black;
+    overflow: scroll;
+    margin-right: 10px;
+    border-radius: 15px;
+    width: 65vw;
+    height: 15vh;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;  
+  }
+
+  .comment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+  }
+
+.comment-username {
+  margin-right: 5px;
+}
+
+.comment-title {
+  font-size: 20px;
+}
+.post-username {
+  font-size: 15px;
+}

@@ -15,7 +15,7 @@ const Modal = ({
   console.log(post_id)
   const createCommentHandler = () => {
     axios
-      .post(`${REACT_APP_BACKEND_URL}/createComment`, {
+      .put(`${REACT_APP_BACKEND_URL}/createComment`, {
         post_id: post_id,
         user_id: props.userObj.user_id,
         comment: createComment

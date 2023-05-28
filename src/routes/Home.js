@@ -5,6 +5,9 @@ import '../components/Home/Home.css'
 import joyPicture from '../images/joy.png'
 import earlPicture from '../images/earl.png'
 import cityHall from '../images/vanzandt.jpeg'
+import trust from '../images/trust.png'
+import essential from '../images/essentialpic.png'
+import local from '../images/localicon.png'
 
 function Home () {
   return (
@@ -45,37 +48,95 @@ function Home () {
             county together.
           </p>
         </div>
-        <img />
-        <h2>Trustworthy</h2>
-        <p>Secure page trusted by the entire community</p>
-        <img />
-        <h2>Essential</h2>
-        <p>
-          Post anywhere using your computer or smart phone. Check out the latest
-          no matter where you are. Read relevant information updated daily in
-          real time.
-        </p>
-        <img />
-        <h2>Local</h2>
-        <p>
-          Connect with others instantly in your area. Learn about local shops
-          and entertainment near you. Get the latest updates on current events
-          around your home.
-        </p>
-      </div>
-      <div>
-        <h1>A little about Van Zandt...</h1>
-        <p />
+        <div className="attributes">
+          <div className="attributes-sections">
+            <img className="hands" src={trust} />
+            <h2 className="trust-h2">Trustworthy</h2>
+            <p className="trust-p">
+              Secure page trusted by the entire community
+            </p>
+          </div>
+          <div className="attributes-sections">
+            <img className="hands" src={essential} />
+            <h2>Essential</h2>
+            <p>Read relevant information updated daily in real time.</p>
+          </div>
+          <div className="attributes-sections">
+            <img className="hands" src={local} />
+            <h2>Local</h2>
+            <p>Connect with others instantly in your area.</p>
+          </div>
+        </div>
       </div>
       <footer>
-        <h3>Helpful Links:</h3>
-        <h5>Entertainment:</h5>
-        <h5>Food/Drink:</h5>
-        <h5>Shop Local:</h5>
+        <h2>Helpful Links:</h2>
+        <div className="footer-container">
+          <h3>Entertainment:</h3>
+          <ul>
+            <li>
+              <a href="https://www.firstmondaycanton.com/" target="_blank">
+                First Monday/Trade Days
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.splashkingdomwaterpark.com/canton-paradise-island/"
+                target="_blank"
+              >
+                Splash Kingdom
+              </a>
+            </li>
+            <li>
+              <a href="https://www.yesterlandfarm.com/" target="_blank">
+                Yesterland Farms
+              </a>
+            </li>
+          </ul>
+          <h3>Food/Drink:</h3>
+          <ul>
+            <li>
+              <a href="https://www.yesterlandfarm.com/" target="_blank">
+                Applebees
+              </a>
+            </li>
+            <li>
+              <a href="https://www.thekickinmule.com/" target="_blank">
+                The Kickin Mule
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/cantontexasusa/?paipv=0&eav=AfZaLs_KF1NDVNpo2ptIldUAANt7duIfZRKFcJC1FzKKRFBW1MqVPG_rIM0f6864kX8&_rdr"
+                target="_blank"
+              >
+                Ole West Bean & Burger
+              </a>
+            </li>
+          </ul>
+          <h3>Shop Local:</h3>
+          <ul>
+            <li>
+              <a href="https://trwboutique.com/" target="_blank">
+                Rancher's Wife
+              </a>
+            </li>
+            <li>
+              <a href="https://thepicketfencetexas.com/" target="_blank">
+                The Picket Fence
+              </a>
+            </li>
+            <li>
+              <a href="https://southernaccents.shop/" target="_blank">
+                Southern Accents
+              </a>
+            </li>
+          </ul>
+        </div>
       </footer>
     </Layout>
   )
 }
 
 export default Home
+
 

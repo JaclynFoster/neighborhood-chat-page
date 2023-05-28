@@ -3,12 +3,13 @@ import '../Blog/Blog.css'
 import axios from 'axios'
 import Modal from './Modal'
 import AuthContext from '../../context/auth-context'
+import heart from './heart.png'
 const { REACT_APP_BACKEND_URL } = process.env
 
-const Posts = ({ postList, getPostsHandler }) => {
+const Posts = ({ postList, getPostsHandler, postLikes, setPostLikes, getPostCount }) => {
   const [showModal, setShowModal] = useState(false)
   const [commentList, setCommentList] = useState([])
-  const [showDelete, setShowDelete] = useState(false)
+  //const [showDelete, setShowDelete] = useState(false)
 
   const props = useContext(AuthContext)
 
@@ -33,6 +34,12 @@ const Posts = ({ postList, getPostsHandler }) => {
       })
   }
 
+  const postLike = () => {
+    let postLikes = 0
+   setPostLikes(postLikes += 1)
+   //setPostLikes(postLikes++)
+  }
+
   useEffect(() => {
     getCommentsHandler()
   }, [])
@@ -42,12 +49,13 @@ const Posts = ({ postList, getPostsHandler }) => {
       {postList.map(post => {
         return (
           <div className="posts">
+            <img src={heart} className="like-btn" onClick={() => postLike(post.post_id)}/>
             <div key={post.post_id}>
               <img className="comment-pic" src={post.image_url} />
-              <label>{post.username}:</label>
+              <label className="post-username">{post.username}:</label>
               <pre>{post.post}</pre>
+                <h4 className="comment-title">Comments:</h4>
               <section className="comment-section">
-                <h4>Comments:</h4>
                 {commentList
                   .filter(comment => {
                     // this is an object
@@ -58,13 +66,14 @@ const Posts = ({ postList, getPostsHandler }) => {
                     // determine how to show them
                     // this is a smaller list of the commentList with the matching data
                     return (
-                      <div key={comment.comment_id}>
+                      <div key={comment.comment_id} className="comment">
                         <img className="comment-pic" src={comment.image_url} />
-                        <label>{comment.username}: </label>
+                        <label className="comment-username">{comment.username}:</label>
                         <span>{comment.comment}</span>
                       </div>
                     )
                   })}
+                  </section>
                 {post.post_id === showModal ? (
                   <Modal
                     getCommentsHandler={getCommentsHandler}
@@ -72,18 +81,20 @@ const Posts = ({ postList, getPostsHandler }) => {
                     setShowModal={setShowModal}
                   />
                 ) : null}
+                <div className="add-delete-container">
                 <button onClick={() => setShowModal(post.post_id)}>
                   Add Comment
                 </button>`
-                {post.user_id === props.userObj.user_id ? (
-                  <button
-                    className="delete-btn"
-                    onClick={() => deletePost(post.post_id)}
-                  >
+                {post.user_id === props.userObj.user_id ? (  
+                <button
+                  className="delete-btn"
+                  onClick={() => deletePost(post.post_id)}>
                     Delete
                   </button>
-                ) : null}
-              </section>
+                  
+                  
+                  ) : null}
+                  </div>
             </div>
           </div>
         )

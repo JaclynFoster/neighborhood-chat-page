@@ -4,6 +4,7 @@ import '../components/Blog/Blog.css'
 import Posts from '../components/Blog/Posts'
 import axios from 'axios'
 import AuthContext from '../context/auth-context'
+import { integer } from 'sharp/lib/is'
 // import { useNavigate } from 'react-router-dom'
 
 const { REACT_APP_BACKEND_URL } = process.env
@@ -14,6 +15,8 @@ const Blog = () => {
   const [postList, setPostList] = useState([]) // pass in list
   const props = useContext(AuthContext)
   const [createPost, setCreatePost] = useState('')
+  const [postCount, setPostCount] = useState('')
+  const [postLikes, setPostLikes] = useState(integer)
 
   const getPostsHandler = () => {
     axios
@@ -35,12 +38,35 @@ const Blog = () => {
       })
       .then(response => {
         getPostsHandler()
+        getPostCount()
+        setCreatePost('')
+
         console.log(response.data)
+      })
+  }
+
+  const getPostCount = () => {
+    axios
+      .get(`${REACT_APP_BACKEND_URL}/getPostCount`, {
+        params: {
+          user_id: props.userObj.user_id
+        }
+      })
+      .then(response => {
+        if (response.data && response.data.length > 0) {
+          setPostCount(response.data[0].count)
+          console.log('postCount:', postCount)
+        }
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log('error on post count', error)
       })
   }
 
   useEffect(() => {
     getPostsHandler()
+    getPostCount()
   }, [])
 
   return (
@@ -53,8 +79,8 @@ const Blog = () => {
           </h2>
           <h3>{props.userObj.username}</h3>
           <h4>{props.userObj.email}</h4>
-          <h4>Posts Created: 4</h4>
-          <h4>Posts Liked: 3</h4>
+          <h4>Posts Created: {postCount}</h4>
+          <h4>Posts Liked: {postLikes}</h4>
         </div>
         <section className="blog-container">
           <div className="posting">
@@ -71,7 +97,11 @@ const Blog = () => {
             </button>
           </div>
           <div className="posts-container">
-            <Posts postList={postList} getPostsHandler={getPostsHandler} />
+            <Posts
+              setPostLikes={setPostLikes}
+              postList={postList}
+              getPostsHandler={getPostsHandler}
+            />
           </div>
         </section>
       </div>

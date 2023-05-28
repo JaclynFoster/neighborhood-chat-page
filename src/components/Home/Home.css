@@ -16,7 +16,6 @@
 }
 
 .title-h1 {
-    font-family: bungee, sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     font-size: 40px;
@@ -24,7 +23,6 @@
 }
 
 p {
-    font-family: bungee, sans-serif;
     font-weight: 400;
     text-transform: uppercase;
     font-size: 20px;
@@ -35,4 +33,47 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.hands {
+    background: transparent;
+    background-color: transparent;
+    height: 150px;
+    width: 150px;
+}
+
+.attributes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+.attributes-sections {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    align-items: center;
+    padding-top: 15px;
+   
+ 
+
+}
+
+.trust-p {
+    margin-left: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer {
+    padding-top: 2px;
+    padding-left: 2px;
+    background-color: rgb(200, 218, 218);
 }

@@ -30,16 +30,19 @@ const Blog = () => {
       })
   }
 
+   
   const setPostHandler = () => {
+  
     axios
-      .post(`${REACT_APP_BACKEND_URL}/createPost`, {
-        post: createPost,
-        user_id: props.userObj.user_id
-      })
-      .then(response => {
-        getPostsHandler()
-        getPostCount()
-        setCreatePost('')
+    .post(`${REACT_APP_BACKEND_URL}/createPost`, {
+      post: createPost,
+      user_id: props.userObj.user_id
+    })
+    .then(response => {
+      getPostsHandler()
+      getPostCount()
+      setCreatePost('')
+      
 
         console.log(response.data)
       })

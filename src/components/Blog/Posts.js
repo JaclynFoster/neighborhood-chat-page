@@ -35,13 +35,27 @@ const Posts = ({ postList, getPostsHandler, postLikes, setPostLikes, getPostCoun
   }
 
   const postLike = () => {
-    let postLikes = 0
-   setPostLikes(postLikes += 1)
-   //setPostLikes(postLikes++)
+  postLikes = 0
+  while (postLikes <= 0) {
+   // postLikes++
+    setPostLikes(postLikes += 1)
   }
+
+  }
+
+  const dateHandler = () => {
+
+    const date = new Date()
+    let day = date.getDate()
+    let month = date.getMonth() + 1
+    let year = date.getFullYear()
+    let currentDate = `${year}-${month}-${day}`
+    return currentDate
+   }
 
   useEffect(() => {
     getCommentsHandler()
+    postLike()
   }, [])
   console.log('commentList', commentList)
   return (
@@ -53,6 +67,7 @@ const Posts = ({ postList, getPostsHandler, postLikes, setPostLikes, getPostCoun
             <div key={post.post_id}>
               <img className="comment-pic" src={post.image_url} />
               <label className="post-username">{post.username}:</label>
+              <span className="date">{dateHandler()}</span>
               <pre>{post.post}</pre>
                 <h4 className="comment-title">Comments:</h4>
               <section className="comment-section">

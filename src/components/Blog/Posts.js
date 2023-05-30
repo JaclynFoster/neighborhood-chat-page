@@ -6,6 +6,8 @@ import AuthContext from '../../context/auth-context'
 import heart from './heart.png'
 const { REACT_APP_BACKEND_URL } = process.env
 
+const url = REACT_APP_BACKEND_URL || '';
+
 const Posts = ({
   postList,
   getPostsHandler,
@@ -20,7 +22,7 @@ const Posts = ({
 
   const getCommentsHandler = () => {
     axios
-      .get(`${REACT_APP_BACKEND_URL}/getComments`)
+      .get(`${url}/getComments`)
       .then(response => {
         setCommentList([...response.data])
 
@@ -33,7 +35,7 @@ const Posts = ({
 
   const putLikesHandler = post_id => {
     axios
-      .put(`${REACT_APP_BACKEND_URL}/putLikes/${post_id}`)
+      .put(`${url}/putLikes/${post_id}`)
       .then(response => {
         getPostsHandler()
         console.log(response.data)
@@ -45,7 +47,7 @@ const Posts = ({
 
   const deletePost = post_id => {
     axios
-      .delete(`${REACT_APP_BACKEND_URL}/deletePost/${post_id}`)
+      .delete(`${url}/deletePost/${post_id}`)
       .then(response => {
         getPostsHandler()
         console.log(response.data)

@@ -6,7 +6,9 @@ import axios from 'axios'
 import AuthContext from '../context/auth-context'
 // import { useNavigate } from 'react-router-dom'
 
-const { REACT_APP_BACKEND_URL } = process.env
+const { REACT_APP_BACKEND_URL } = process.env;
+
+const url = REACT_APP_BACKEND_URL || '';
 
 const Blog = () => {
   // const navigate = useNavigate()
@@ -19,7 +21,7 @@ const Blog = () => {
 
   const getPostsHandler = () => {
     axios
-      .get(`${REACT_APP_BACKEND_URL}/getPosts`)
+      .get(`${url}/getPosts`)
       .then(response => {
         setPostList(response.data)
         console.log(response.data)
@@ -31,7 +33,7 @@ const Blog = () => {
 
   const setPostHandler = () => {
     axios
-      .post(`${REACT_APP_BACKEND_URL}/createPost`, {
+      .post(`${url}/createPost`, {
         post: createPost,
         user_id: props.userObj.user_id
       })
@@ -46,7 +48,7 @@ const Blog = () => {
 
   const getPostCount = () => {
     axios
-      .get(`${REACT_APP_BACKEND_URL}/getPostCount`, {
+      .get(`${url}/getPostCount`, {
         params: {
           user_id: props.userObj.user_id
         }

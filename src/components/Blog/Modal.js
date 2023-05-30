@@ -2,7 +2,9 @@ import React, { useContext, useState, useEffect } from 'react'
 import '../Blog/Blog.css'
 import AuthContext from '../../context/auth-context'
 import axios from 'axios'
-const { REACT_APP_BACKEND_URL } = process.env
+const { REACT_APP_BACKEND_URL } = process.env;
+
+const url = REACT_APP_BACKEND_URL || '';
 
 const Modal = ({
   setShowModal,
@@ -15,7 +17,7 @@ const Modal = ({
   console.log(post_id)
   const createCommentHandler = () => {
     axios
-      .put(`${REACT_APP_BACKEND_URL}/createComment`, {
+      .put(`${url}/createComment`, {
         post_id: post_id,
         user_id: props.userObj.user_id,
         comment: createComment

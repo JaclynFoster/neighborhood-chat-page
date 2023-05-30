@@ -4,7 +4,9 @@ import Layout from '../components/Layout/Layout'
 import axios from 'axios'
 import AuthContext from '../context/auth-context'
 import { useNavigate } from 'react-router-dom'
-const { REACT_APP_BACKEND_URL } = process.env
+const { REACT_APP_BACKEND_URL } = process.env;
+
+const url = REACT_APP_BACKEND_URL || '';
 
 const Login = () => {
   const props = useContext(AuthContext)
@@ -17,7 +19,7 @@ const Login = () => {
 
   const loginClickHandler = () => {
     axios
-      .get(`${REACT_APP_BACKEND_URL}/getUser`, {
+      .get(`${url}/getUser`, {
         params: {
           username: usernameInput,
           password: passwordInput

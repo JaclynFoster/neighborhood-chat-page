@@ -9,6 +9,8 @@ import Layout from '../components/Layout/Layout'
 import SignupModal from '../components/Login/SignupModal'
 const { REACT_APP_BACKEND_URL } = process.env
 
+const url = REACT_APP_BACKEND_URL || '';
+
 const Signup = () => {
   const refSubmit = useRef()
   const props = useContext(AuthContext)
@@ -26,7 +28,7 @@ const Signup = () => {
     refSubmit.current.setAttribute('disabled', true)
 
     axios
-      .post(`${REACT_APP_BACKEND_URL}/createUsers`, {
+      .post(`${url}/createUsers`, {
         username: usernameSignup,
         password: passwordSignup,
         first_name: firstNameSignup,

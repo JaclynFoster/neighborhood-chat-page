@@ -7,6 +7,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use(express.static(`${__dirname}/../public`))
+console.log(__dirname)
 
 const {
   createUsers,

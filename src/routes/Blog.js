@@ -4,7 +4,6 @@ import '../components/Blog/Blog.css'
 import Posts from '../components/Blog/Posts'
 import axios from 'axios'
 import AuthContext from '../context/auth-context'
-import { integer } from 'sharp/lib/is'
 // import { useNavigate } from 'react-router-dom'
 
 const { REACT_APP_BACKEND_URL } = process.env
@@ -16,7 +15,7 @@ const Blog = () => {
   const props = useContext(AuthContext)
   const [createPost, setCreatePost] = useState('')
   const [postCount, setPostCount] = useState('')
-  const [postLikes, setPostLikes] = useState(integer)
+  const [postLikes, setPostLikes] = useState(0)
 
   const getPostsHandler = () => {
     axios

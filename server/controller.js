@@ -8,7 +8,8 @@ const {
   QUERY_CREATE_POST,
   QUERY_CREATE_COMMENT,
   QUERY_DELETE_POST,
-  QUERY_GET_POST_COUNT
+  QUERY_GET_POST_COUNT,
+  QUERY_PUT_LIKES
 } = require('./QUERIES')
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -139,6 +140,20 @@ const deletePost = (req, res) => {
     })
 }
 
+const putLikes = (req, res) => {
+  const { post_id } = req.params
+  sequelize
+    .query(QUERY_PUT_LIKES, {
+      replacements: [post_id, post_id]
+    })
+    .then(dbRes => {
+      res.sendStatus(200)
+    })
+    .catch(error => {
+      console.log('likes error', error)
+    })
+}
+
 module.exports = {
   createUsers,
   getPosts,
@@ -147,7 +162,8 @@ module.exports = {
   createPost,
   createComment,
   deletePost,
-  getPostCount
+  getPostCount,
+  putLikes
 }
 
 

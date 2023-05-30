@@ -40,6 +40,12 @@ const QUERY_DELETE_POST = `
 DELETE FROM posts
 WHERE post_id = ?
 `
+
+const QUERY_PUT_LIKES = `
+UPDATE posts
+SET likes = (1 + (SELECT likes FROM posts WHERE post_id = ?))
+WHERE post_id = ?
+`
 module.exports = {
   QUERY_CREATE_USER,
   QUERY_GET_POSTS,
@@ -48,7 +54,8 @@ module.exports = {
   QUERY_CREATE_POST,
   QUERY_CREATE_COMMENT,
   QUERY_DELETE_POST,
-  QUERY_GET_POST_COUNT
+  QUERY_GET_POST_COUNT,
+  QUERY_PUT_LIKES
 }
 
 

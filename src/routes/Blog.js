@@ -80,7 +80,7 @@ const Blog = () => {
           <h3>{props.userObj.username}</h3>
           <h4>{props.userObj.email}</h4>
           <h4>Posts Created: {postCount}</h4>
-          <h4>Posts Liked: {postLikes}</h4>
+          {/* <h4>Posts Liked: {postLikes}</h4> */}
         </div>
         <section className="blog-container">
           <div className="posting">
@@ -97,11 +97,7 @@ const Blog = () => {
             </button>
           </div>
           <div className="posts-container">
-            <Posts
-              setPostLikes={setPostLikes}
-              postList={postList}
-              getPostsHandler={getPostsHandler}
-            />
+            <Posts postList={postList} getPostsHandler={getPostsHandler} />
           </div>
         </section>
       </div>
@@ -110,6 +106,7 @@ const Blog = () => {
 }
 
 export default Blog
+
 
 
 

@@ -133,6 +133,7 @@ pre {
     width: 40px;
     border-radius: 10px;
     margin-right: 15px;
+
   
   }
 
@@ -183,3 +184,14 @@ pre {
   float: right;
   margin-right: 20px;
 }
+
+.likes {
+  float: right;
+  margin-left: -10px;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+
+}
+

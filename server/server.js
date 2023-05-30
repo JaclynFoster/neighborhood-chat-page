@@ -14,19 +14,22 @@ const {
   createPost,
   createComment,
   deletePost,
-  getPostCount
+  getPostCount,
+  putLikes
 } = require('./controller.js')
 
 app.post('/createUsers', createUsers)
 app.post('/createPost', createPost)
 app.put('/createComment', createComment)
+app.put(`/putLikes/:post_id`, putLikes)
 app.get('/getPosts', getPosts)
 app.get('/getComments', getComments)
 app.get('/getUser', getUser)
 app.get('/getPostCount', getPostCount)
-app.delete('/deletePost:post_id', deletePost)
+app.delete('/deletePost/:post_id', deletePost)
 
 app.listen(SERVER_PORT, () => {
   console.log(`Listening on port ${SERVER_PORT}`)
 })
+
 

@@ -30,23 +30,30 @@ const Posts = ({
         console.log('error on get comments', error)
       })
   }
+
+  const putLikesHandler = post_id => {
+    axios
+      .put(`${REACT_APP_BACKEND_URL}/putLikes/${post_id}`)
+      .then(response => {
+        getPostsHandler()
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log('error on likes', error)
+      })
+  }
+
   const deletePost = post_id => {
     axios
-      .delete(`${REACT_APP_BACKEND_URL}/deletePost${post_id}`)
+      .delete(`${REACT_APP_BACKEND_URL}/deletePost/${post_id}`)
       .then(response => {
         getPostsHandler()
         console.log(response.data)
       })
   }
 
-  const postLike = () => {
-    postLikes = 0
-    setPostLikes(Number((postLikes += 1)))
-  }
-
   useEffect(() => {
     getCommentsHandler()
-    postLike()
   }, [])
   console.log('commentList', commentList)
   return (
@@ -54,11 +61,15 @@ const Posts = ({
       {postList.map(post => {
         return (
           <div className="posts">
-            <img
-              src={heart}
-              className="like-btn"
-              onClick={() => postLike(post.post_id)}
-            />
+            <div className="likes-container">
+              <span className="likes">{post.likes}</span>
+              <img
+                src={heart}
+                className="like-btn"
+                onClick={() => putLikesHandler(post.post_id)}
+              />
+            </div>
+
             <span className="date">{post.date}</span>
             <div key={post.post_id}>
               <img className="comment-pic" src={post.image_url} />
@@ -115,5 +126,6 @@ const Posts = ({
 }
 
 export default Posts
+
 
 

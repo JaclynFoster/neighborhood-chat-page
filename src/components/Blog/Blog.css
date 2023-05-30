@@ -149,12 +149,9 @@ pre {
 
   .comment-section {
     border: 3px double black;
-    overflow: scroll;
     margin-right: 10px;
     border-radius: 15px;
     width: 65vw;
-    height: 20vh;
-    overflow: scroll;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;  

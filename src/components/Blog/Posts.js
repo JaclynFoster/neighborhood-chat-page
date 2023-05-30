@@ -72,7 +72,7 @@ const Posts = ({
               />
             </div>
 
-            <span className="date">{post.date}</span>
+            <time className="date">{post.date}</time>
             <div key={post.post_id}>
               <img className="comment-pic" src={post.image_url} />
               <label className="post-username">{post.username}:</label>

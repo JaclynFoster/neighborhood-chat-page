@@ -45,7 +45,7 @@
 }
 
 .posts {
-    height: 300px;
+    height: 400px;
     width: 1000px;
     background-color: whitesmoke;
     border-radius: 20px;
@@ -152,7 +152,7 @@ pre {
     margin-right: 10px;
     border-radius: 15px;
     width: 65vw;
-    height: 15vh;
+    height: 20vh;
     overflow: scroll;
     display: flex;
     flex-direction: column;
@@ -178,5 +178,8 @@ pre {
 }
 
 .date {
-  margin-left: 40%;
+  font-size: 15px;
+  font-style: italic;
+  float: right;
+  margin-right: 20px;
 }

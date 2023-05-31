@@ -1,7 +1,7 @@
 # About the app
 Block Banter is a neighborhood blog page to allow members in the area a chance to talk and post questions, concerns, buy/sell items, etc.
 Users can view links to local spots in the area through the home page, login as an established user or create an account if they are new to the site. 
-![ScreenShot](https://{https://drive.google.com/uc?export=download&id=1N0b75YaYT5pcGjWRIPYVzPFy5WNaWX1Z})
+![My_Image](Screenshot.png "Screenshot of App Home")
 
 ## Framework
 Built using React, React-Router, Context API, Javascript, HTML, CSS for front end.

@@ -1,3 +1,4 @@
+const serverless = require('serverless-http')
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -30,6 +31,8 @@ app.get('/getComments', getComments)
 app.get('/getUser', getUser)
 app.get('/getPostCount', getPostCount)
 app.delete('/deletePost/:post_id', deletePost)
+
+module.exports.handler = serverless(app);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Listening on port ${SERVER_PORT}`)

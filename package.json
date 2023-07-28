@@ -15,11 +15,13 @@
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "sequelize": "^6.31.1",
+    "serverless-http": "^3.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "REACT_APP_BACKEND_URL=https://ugh2cce2y2rwekylau2othjm7i0witwa.lambda-url.us-east-1.on.aws npm run build && aws s3 sync build/ s3://blockbanter.jaclyndfoster.com",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

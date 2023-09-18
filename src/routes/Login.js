@@ -4,9 +4,9 @@ import Layout from '../components/Layout/Layout'
 import axios from 'axios'
 import AuthContext from '../context/auth-context'
 import { useNavigate } from 'react-router-dom'
-const { REACT_APP_BACKEND_URL } = process.env;
+const { REACT_APP_BACKEND_URL } = process.env
 
-const url = REACT_APP_BACKEND_URL || '';
+const url = REACT_APP_BACKEND_URL || ''
 
 const Login = () => {
   const props = useContext(AuthContext)
@@ -51,20 +51,26 @@ const Login = () => {
         <AuthContext.Provider value={{ user_id: userObject.user_id }}>
           <div key={userObject.user_id} className="login">
             <h1 className="join">Login</h1>
-            <label>Username:</label>
-            <input
-              value={usernameInput}
-              onChange={e => handleUsernameChange(e.target.value)}
-            />
-            <label>Password:</label>
-            <input
-              type="password"
-              value={passwordInput}
-              onChange={e => handlePasswordChange(e.target.value)}
-            />
-            <button onClick={() => loginClickHandler()}>Submit</button>
-            <label>Need an account?</label>
-            <button onClick={() => newSignupHandler()}>Sign Up</button>
+            <div className="username">
+              <label>Username:</label>
+              <input
+                value={usernameInput}
+                onChange={e => handleUsernameChange(e.target.value)}
+              />
+            </div>
+            <div className="password">
+              <label>Password:</label>
+              <input
+                type="password"
+                value={passwordInput}
+                onChange={e => handlePasswordChange(e.target.value)}
+              />
+            </div>
+            <div className="login-btns">
+              <button onClick={() => loginClickHandler()}>Submit</button>
+              <label>Need an account?</label>
+              <button onClick={() => newSignupHandler()}>Sign Up</button>
+            </div>
           </div>
         </AuthContext.Provider>
       </div>

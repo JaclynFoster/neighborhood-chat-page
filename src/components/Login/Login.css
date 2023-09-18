@@ -3,11 +3,10 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    height: 80vh;
-    margin-top: 25px;
-   justify-content: space-around;
-   
-
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -17,14 +16,32 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: rgb(200, 218, 218);
-    width: 400px;
+    width: 300px;
+    margin: 25px;
     border: 5px double;
     box-shadow: 5px 5px 8px cadetblue, 10px 10px 8px darkgrey, 15px 15px 8px black;
-    border-radius: 20px;
-
-    
+    border-radius: 20px;  
 }
 
+.username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 250px;
+    gap: 10px;
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 250px;
+    gap: 10px;
+    margin-top: 10px;
+}
 
 .signup {
     display: flex;
@@ -37,21 +54,18 @@
     border: 5px double;
     box-shadow: 5px 5px 8px cadetblue, 10px 10px 8px darkgrey, 15px 15px 8px black;
     border-radius: 20px;
-  
-  
 }
 
 label {
     font-weight: 400;
     text-transform: uppercase;
     font-size: 20px;
- 
 }
 
 .join {
     font-weight: 400;
     text-transform: uppercase;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .h3 {
@@ -63,22 +77,27 @@ label {
 }
 
 input {
-    width: 300px;
+    width: 250px;
+    min-width: 250px;
     height: 30px;
     border-radius: 15px;
     padding-left: 15px;
- 
 }
 
+
+.login-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 200px;
+}
 button {
     height: 40px;
     width: 100px;
     border-radius: 15px;
     box-shadow: 3px 3px 3px rgb(19, 19, 20);
     background-color: cadetblue;
-    margin-bottom: 10px;
-    margin-top: 10px;
-
 }
 
 button:hover {
@@ -101,9 +120,9 @@ button:active {
     background-color: rgba(0, 0, 0, 0.074);
     left: 0;
     top: 0;
-  }
+}
 
-  .modal-box {
+.modal-box {
     background-color: rgb(200, 218, 218);;
     width: 500px;
     height: 20px;
@@ -112,4 +131,4 @@ button:active {
     font-size: 45px;
     font-weight: bolder;
     padding: 10px 10px;
-  }
+}

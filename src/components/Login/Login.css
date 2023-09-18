@@ -3,8 +3,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    /* height: 100%; */
     align-items: center;
     justify-content: center;
 }
@@ -40,7 +40,7 @@
     width: 100%;
     min-width: 250px;
     gap: 10px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .signup {
@@ -50,16 +50,18 @@
     align-content: center;
     align-items: center;
     background-color:rgb(200, 218, 218);
-    width: 600px;
     border: 5px double;
     box-shadow: 5px 5px 8px cadetblue, 10px 10px 8px darkgrey, 15px 15px 8px black;
     border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 label {
     font-weight: 400;
     text-transform: uppercase;
     font-size: 20px;
+    padding: 5px;
 }
 
 .join {
@@ -72,8 +74,8 @@ label {
     font-weight: 400;
     text-transform: uppercase;
     font-size: 30px;
+    width: 100%;
     color: darkcyan;
-    margin-top: -20px;
 }
 
 input {
@@ -131,4 +133,22 @@ button:active {
     font-size: 45px;
     font-weight: bolder;
     padding: 10px 10px;
+}
+
+.add-me-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.signup-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.signup-header {
+    text-align: center;
 }

@@ -9,7 +9,7 @@ import Layout from '../components/Layout/Layout'
 import SignupModal from '../components/Login/SignupModal'
 const { REACT_APP_BACKEND_URL } = process.env
 
-const url = REACT_APP_BACKEND_URL || '';
+const url = REACT_APP_BACKEND_URL || ''
 
 const Signup = () => {
   const refSubmit = useRef()
@@ -57,45 +57,68 @@ const Signup = () => {
     <Layout>
       <div className="login-parent">
         <div key={createUser.user_id} className="signup">
-          <h1 className="join">Join the Banter</h1>
-          <h3 className="h3">Sign Up Today!</h3>
-          <label>Create Username:</label>
-          <input
-            value={usernameSignup}
-            onChange={e => handleUsernameSignup(e.target.value)}
-          />
-          <label>Create Password:</label>
-          <input
-            type="password"
-            value={passwordSignup}
-            onChange={e => handlePasswordSignup(e.target.value)}
-          />
-          <label>First Name:</label>
-          <input
-            value={firstNameSignup}
-            onChange={e => handleFirstSignup(e.target.value)}
-          />
-          <label>Last Name:</label>
-          <input
-            value={lastNameSignup}
-            onChange={e => handleLastSignup(e.target.value)}
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            value={emailSignup}
-            onChange={e => handleEmailSignup(e.target.value)}
-          />
-          <label>Add Profile Image URL:</label>
-          <input
-            value={imageSignup}
-            onChange={e => handleImageSignup(e.target.value)}
-          />
-
+          <div className="signup-header">
+            <h1 className="join">Join the Banter</h1>
+            <h3 className="h3">Sign Up Today!</h3>
+          </div>
+          <div className="signup-section">
+            <div className="username">
+              <label>Create Username:</label>
+              <input
+                value={usernameSignup}
+                onChange={e => handleUsernameSignup(e.target.value)}
+              />
+            </div>
+            <div className="password">
+              <label>Create Password:</label>
+              <input
+                type="password"
+                value={passwordSignup}
+                onChange={e => handlePasswordSignup(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="signup-section">
+            <div className="username">
+              <label>First Name:</label>
+              <input
+                value={firstNameSignup}
+                onChange={e => handleFirstSignup(e.target.value)}
+              />
+            </div>
+            <div className="password">
+              <label>Last Name:</label>
+              <input
+                value={lastNameSignup}
+                onChange={e => handleLastSignup(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="signup-section">
+            <div className="username">
+              <label>Email:</label>
+              <input
+                type="email"
+                value={emailSignup}
+                onChange={e => handleEmailSignup(e.target.value)}
+              />
+            </div>
+            <div className="password">
+              <label>Add Profile Image URL:</label>
+              <input
+                value={imageSignup}
+                onChange={e => handleImageSignup(e.target.value)}
+              />
+            </div>
+          </div>
           {showSignupModal ? (
             <SignupModal setShowSignupModal={setShowSignupModal} />
           ) : null}
-          <button ref={refSubmit} onClick={() => signupClickHandler()}>
+          <button
+            className="add-me-btn"
+            ref={refSubmit}
+            onClick={() => signupClickHandler()}
+          >
             Add Me
           </button>
         </div>
@@ -105,3 +128,4 @@ const Signup = () => {
 }
 
 export default Signup
+

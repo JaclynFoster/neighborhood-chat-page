@@ -1,5 +1,4 @@
 import '../App.css'
-import { Link } from 'react-router-dom'
 import Layout from '../components/Layout/Layout'
 import '../components/Home/Home.css'
 import joyPicture from '../images/joy.png'
@@ -26,14 +25,20 @@ function Home () {
             your neighbors.{' '}
           </p>
           <p>Welcome to the community! </p>
-          <img src={cityHall} />
+          <img src={cityHall} className="city-hall" />
         </div>
         <div className="creator-section">
           <h1>Special Thanks to our creators:</h1>
-          <img className="creator-pic" src={joyPicture} />
-          <h4>Margaret Joy</h4>
-          <img className="creator-pic" src={earlPicture} />
-          <h4>Charlie Earl</h4>
+          <div className="creator-div">
+            <div>
+              <img className="creator-pic" src={joyPicture} />
+              <h4>Margaret Joy</h4>
+            </div>
+            <div>
+              <img className="creator-pic" src={earlPicture} />
+              <h4>Charlie Earl</h4>
+            </div>
+          </div>
           <p>
             Margaret and Charlie were the masterminds behind the creation of
             this site.{' '}
@@ -69,68 +74,80 @@ function Home () {
         </div>
       </div>
       <footer>
-        <h2>Helpful Links:</h2>
+        <h2>Check out these places in our area:</h2>
         <div className="footer-container">
-          <h3>Entertainment:</h3>
-          <ul>
-            <li>
-              <a href="https://www.firstmondaycanton.com/" target="_blank">
-                First Monday/Trade Days
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.splashkingdomwaterpark.com/canton-paradise-island/"
-                target="_blank"
-              >
-                Splash Kingdom
-              </a>
-            </li>
-            <li>
-              <a href="https://www.yesterlandfarm.com/" target="_blank">
-                Yesterland Farms
-              </a>
-            </li>
-          </ul>
-          <h3>Food/Drink:</h3>
-          <ul>
-            <li>
-              <a href="https://www.yesterlandfarm.com/" target="_blank">
-                Applebees
-              </a>
-            </li>
-            <li>
-              <a href="https://www.thekickinmule.com/" target="_blank">
-                The Kickin Mule
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/cantontexasusa/?paipv=0&eav=AfZaLs_KF1NDVNpo2ptIldUAANt7duIfZRKFcJC1FzKKRFBW1MqVPG_rIM0f6864kX8&_rdr"
-                target="_blank"
-              >
-                Ole West Bean & Burger
-              </a>
-            </li>
-          </ul>
-          <h3>Shop Local:</h3>
-          <ul>
-            <li>
-              <a href="https://trwboutique.com/" target="_blank">
-                Rancher's Wife
-              </a>
-            </li>
-            <li>
-              <a href="https://thepicketfencetexas.com/" target="_blank">
-                The Picket Fence
-              </a>
-            </li>
-            <li>
-              <a href="https://southernaccents.shop/" target="_blank">
-                Southern Accents
-              </a>
-            </li>
-          </ul>
+          <div className="entertainment-container">
+            <h3 className="footer-title">Entertainment:</h3>
+            <div className="entertainment-list">
+              <ul>
+                <li>
+                  <a href="https://www.firstmondaycanton.com/" target="_blank">
+                    First Monday/Trade Days
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.splashkingdomwaterpark.com/canton-paradise-island/"
+                    target="_blank"
+                  >
+                    Splash Kingdom
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.yesterlandfarm.com/" target="_blank">
+                    Yesterland Farms
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="food-container">
+            <h3 className="footer-title">Food/Drink:</h3>
+            <div className="food-list">
+              <ul>
+                <li>
+                  <a href="https://www.yesterlandfarm.com/" target="_blank">
+                    Applebees
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.thekickinmule.com/" target="_blank">
+                    The Kickin Mule
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/cantontexasusa/?paipv=0&eav=AfZaLs_KF1NDVNpo2ptIldUAANt7duIfZRKFcJC1FzKKRFBW1MqVPG_rIM0f6864kX8&_rdr"
+                    target="_blank"
+                  >
+                    Ole West Bean & Burger
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="shop-container">
+            <h3 className="footer-title">Shop Local:</h3>
+            <div className="shop-list">
+              <ul>
+                <li>
+                  <a href="https://trwboutique.com/" target="_blank">
+                    Rancher's Wife
+                  </a>
+                </li>
+                <li>
+                  <a href="https://thepicketfencetexas.com/" target="_blank">
+                    The Picket Fence
+                  </a>
+                </li>
+                <li>
+                  <a href="https://southernaccents.shop/" target="_blank">
+                    Southern Accents
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </footer>
     </Layout>
@@ -138,5 +155,6 @@ function Home () {
 }
 
 export default Home
+
 
 

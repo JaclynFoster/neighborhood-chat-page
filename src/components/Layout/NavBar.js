@@ -50,10 +50,10 @@ const NavBar = () => {
       {context => {
         console.log(context)
         return (
-          <div className="nav">
+          <div className="nav-container">
             <img alt="Block Banter Logo" className="logo" src={picture} />
-            <nav className="nav">
-              <h1 className="title">Block Banter</h1>
+            <h1 className="title">Block Banter</h1>
+            <nav>
               <Link className="link" to="/">
                 Home
               </Link>
@@ -71,5 +71,6 @@ const NavBar = () => {
 }
 
 export default NavBar
+
 
 

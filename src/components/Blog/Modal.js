@@ -53,7 +53,7 @@ const Modal = ({
             className="comment-input"
             placeholder="Leave a comment..."
           />
-          <button onClick={() => createCommentHandler()}>Send</button>
+          <button className="button" onClick={() => createCommentHandler()}>Send</button>
         </div>
       </div>
     </div>

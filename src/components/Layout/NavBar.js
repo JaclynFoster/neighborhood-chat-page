@@ -26,6 +26,7 @@ const NavBar = () => {
     } else {
       return (
         <button
+        className="logout-btn"
           onClick={() => {
             props.setUserObj({})
           }}

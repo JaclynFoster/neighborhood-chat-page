@@ -109,3 +109,14 @@ nav {
     justify-content: center;
     width: 100%;
   }
+
+  .logout-btn {
+    background-color: transparent;
+    border: none;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .logout-btn:hover {
+    color: rgb(200, 218, 218);
+  }

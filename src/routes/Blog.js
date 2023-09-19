@@ -96,7 +96,7 @@ const Blog = () => {
             className="blog-text"
             placeholder="  Type new post here..."
           />
-          <button onClick={() => setPostHandler()} className="post-btn">
+          <button onClick={() => setPostHandler()} className="button post-btn">
             Submit Post
           </button>
           <Posts postList={postList} getPostsHandler={getPostsHandler} />

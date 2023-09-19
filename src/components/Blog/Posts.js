@@ -104,12 +104,12 @@ const Posts = ({
                 />
               ) : null}
               <div className="add-delete-container">
-                <button onClick={() => setShowModal(post.post_id)}>
+                <button className="button" onClick={() => setShowModal(post.post_id)}>
                   Add Comment
                 </button>`
                 {post.user_id === props.userObj.user_id ? (
                   <button
-                    className="delete-btn"
+                    className="button delete-btn"
                     onClick={() => deletePost(post.post_id)}
                   >
                     Delete

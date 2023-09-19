@@ -67,9 +67,9 @@ const Login = () => {
               />
             </div>
             <div className="login-btns">
-              <button onClick={() => loginClickHandler()}>Submit</button>
+              <button className="button" onClick={() => loginClickHandler()}>Submit</button>
               <label>Need an account?</label>
-              <button onClick={() => newSignupHandler()}>Sign Up</button>
+              <button className="button" onClick={() => newSignupHandler()}>Sign Up</button>
             </div>
           </div>
         </AuthContext.Provider>

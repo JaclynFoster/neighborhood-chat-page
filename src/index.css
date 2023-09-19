@@ -13,3 +13,20 @@ code {
   
 
 }
+
+.button {
+  height: 40px;
+  width: 100px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px rgb(19, 19, 20);
+  background-color: cadetblue;
+}
+
+.button:hover {
+  background-color: rgb(136, 210, 179);
+  color:black;
+}
+
+.button:active {
+  transform: translatey(-1px);
+}

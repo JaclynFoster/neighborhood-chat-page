@@ -115,7 +115,7 @@ const Signup = () => {
             <SignupModal setShowSignupModal={setShowSignupModal} />
           ) : null}
           <button
-            className="add-me-btn"
+            className="button add-me-btn"
             ref={refSubmit}
             onClick={() => signupClickHandler()}
           >

@@ -4,14 +4,13 @@ import '../components/Blog/Blog.css'
 import Posts from '../components/Blog/Posts'
 import axios from 'axios'
 import AuthContext from '../context/auth-context'
-// import { useNavigate } from 'react-router-dom'
 
-const { REACT_APP_BACKEND_URL } = process.env;
 
-const url = REACT_APP_BACKEND_URL || '';
+const { REACT_APP_BACKEND_URL } = process.env
+
+const url = REACT_APP_BACKEND_URL || ''
 
 const Blog = () => {
-  // const navigate = useNavigate()
   // const [variableName, setVariablefunction] = useState(initial value)
   const [postList, setPostList] = useState([]) // pass in list
   const props = useContext(AuthContext)
@@ -74,39 +73,41 @@ const Blog = () => {
     <Layout>
       <div className="blog-parent">
         <div className="profile-card">
-          <img className="profile-img" src={props.userObj.image_url} />
-          <h2>
-            {props.userObj.first_name} {props.userObj.last_name}
-          </h2>
-          <h3>{props.userObj.username}</h3>
-          <h4>{props.userObj.email}</h4>
-          <h4>Posts Created: {postCount}</h4>
-          {/* <h4>Posts Liked: {postLikes}</h4> */}
+          <div className="user-card-flex">
+            <img className="profile-img" src={props.userObj.image_url} />
+            <h2>
+              {props.userObj.first_name} {props.userObj.last_name}
+            </h2>
+            <h4>Posts Created: {postCount}</h4>
+          </div>
+          <div className="user-card-flex">
+            <label>Username:</label>
+            <h3>{props.userObj.username}</h3>
+            <label>Email:</label>
+            <h4>{props.userObj.email}</h4>
+          </div>
         </div>
-        <section className="blog-container">
-          <div className="posting">
-            <textarea
-              value={createPost}
-              onChange={e => {
-                setCreatePost(e.target.value)
-              }}
-              className="blog-text"
-              placeholder="  Type new post here..."
-            />
-            <button onClick={() => setPostHandler()} className="post-btn">
-              Submit Post
-            </button>
-          </div>
-          <div className="posts-container">
-            <Posts postList={postList} getPostsHandler={getPostsHandler} />
-          </div>
-        </section>
+        <div className="posting">
+          <textarea
+            value={createPost}
+            onChange={e => {
+              setCreatePost(e.target.value)
+            }}
+            className="blog-text"
+            placeholder="  Type new post here..."
+          />
+          <button onClick={() => setPostHandler()} className="post-btn">
+            Submit Post
+          </button>
+          <Posts postList={postList} getPostsHandler={getPostsHandler} />
+        </div>
       </div>
     </Layout>
   )
 }
 
 export default Blog
+
 
 
 

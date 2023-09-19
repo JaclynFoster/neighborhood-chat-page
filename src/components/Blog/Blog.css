@@ -1,14 +1,14 @@
 .profile-card {
     display: flex;
-    float: right;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: whitesmoke;
-    border: 4px double black;
+    border: 4px double #000000;
     align-items: center;
-    width: 250px;
+    justify-content: space-evenly;
+    width: 30%;
+    min-width: 200px;
     padding: 10px;
-    margin-right: 35px;
     margin-top: 15px;
     border-radius: 20px;
     box-shadow: 5px 5px 8px rgb(200, 218, 218), 10px 10px 8px darkgrey, 15px 15px 8px black;
@@ -19,13 +19,13 @@
     border-radius: 50%;
     height: 150px;
     width: 150px;
+    min-width: 50px;
 }
 
 .blog-text {
-    width: 800px;
+    width: 70%;
     height: 100px;
     margin-top: 30px;
-    margin-left: -10px;
     border-radius: 30px;
     margin-bottom: 20px;
     padding-left: 15px;
@@ -34,28 +34,24 @@
 
 .posting {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-}
-
-.post-btn {
-    margin-left: -80px;
-    margin-top: 30px;
+    width: 80%;
+    min-width: 280px;  
+    margin-bottom: 15px;
 }
 
 .posts {
-    height: 400px;
-    width: 1000px;
+    min-width: 280px;
+    min-height: 300px;
     background-color: whitesmoke;
     border-radius: 20px;
     border: 4px double black;
     box-shadow: 5px 5px 8px rgb(200, 218, 218), 10px 10px 8px darkgrey, 15px 15px 8px black;
-    margin-left: 30px;
-    padding-left: 20px;
     padding-top: 10px;
     margin-bottom: 20px;
-    overflow: auto;
 }
 
 
@@ -64,7 +60,11 @@
     width: 45px;
     border-radius: 40px;
     border: 1px solid black;
+    margin-left: 4px;
     margin-right: 4px;
+    margin-top: 4px;
+    min-width: 30px;
+    min-height: 30px; 
 }
 
 pre {
@@ -74,7 +74,7 @@ pre {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .leave-comment {
@@ -83,8 +83,6 @@ pre {
     align-items: center;
     flex-wrap: nowrap;
     margin-top: 50px;
-    
-
   }
 
   .comment-input {
@@ -133,8 +131,6 @@ pre {
     width: 40px;
     border-radius: 10px;
     margin-right: 15px;
-
-  
   }
 
   .like-btn:active {
@@ -145,31 +141,38 @@ pre {
     display: flex;
     justify-content: space-between;
     align-content: end;
+    padding: 10px;
   }
 
   .comment-section {
     border: 3px double black;
     margin-right: 10px;
+    margin-left: 10px;
     border-radius: 15px;
-    width: 65vw;
+    width: 85%;
     display: flex;
+    min-width: 250px;
+    overflow: scroll;
     flex-direction: column;
-    flex-wrap: nowrap;  
+    flex-wrap: wrap;  
   }
 
   .comment {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 5px;
+    width: 80%;
+    justify-content: flex-start;
+    gap: 10px;
   }
 
 .comment-username {
-  margin-right: 5px;
+  font-size: 15px;
 }
 
 .comment-title {
   font-size: 20px;
+  padding-left: 5px;
 }
 .post-username {
   font-size: 15px;
@@ -192,3 +195,23 @@ pre {
 
 }
 
+.blog-parent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.posts-container {
+  width: 100%;
+  min-width: 280px;
+}
+
+.user-card-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

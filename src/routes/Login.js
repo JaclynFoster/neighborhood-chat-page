@@ -47,7 +47,7 @@ const Login = () => {
   useEffect(() => {}, [])
   return (
     <Layout>
-      <div className="login-parent">
+      <div className="login-parent login-height">
         <AuthContext.Provider value={{ user_id: userObject.user_id }}>
           <div key={userObject.user_id} className="login">
             <h1 className="join">Login</h1>

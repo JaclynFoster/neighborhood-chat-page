@@ -6,7 +6,7 @@ import AuthContext from '../../context/auth-context'
 import heart from './heart.png'
 const { REACT_APP_BACKEND_URL } = process.env
 
-const url = REACT_APP_BACKEND_URL || '';
+const url = REACT_APP_BACKEND_URL || ''
 
 const Posts = ({
   postList,
@@ -46,12 +46,10 @@ const Posts = ({
   }
 
   const deletePost = post_id => {
-    axios
-      .delete(`${url}/deletePost/${post_id}`)
-      .then(response => {
-        getPostsHandler()
-        console.log(response.data)
-      })
+    axios.delete(`${url}/deletePost/${post_id}`).then(response => {
+      getPostsHandler()
+      console.log(response.data)
+    })
   }
 
   useEffect(() => {
@@ -59,7 +57,7 @@ const Posts = ({
   }, [])
   console.log('commentList', commentList)
   return (
-    <div>
+    <div className="posts-container">
       {postList.map(post => {
         return (
           <div className="posts">
@@ -71,7 +69,6 @@ const Posts = ({
                 onClick={() => putLikesHandler(post.post_id)}
               />
             </div>
-
             <time className="date">{post.date}</time>
             <div key={post.post_id}>
               <img className="comment-pic" src={post.image_url} />
@@ -128,6 +125,7 @@ const Posts = ({
 }
 
 export default Posts
+
 
 
 
